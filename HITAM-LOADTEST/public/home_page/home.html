@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style>
+		@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@200&display=swap');
+		@import url('https://fonts.googleapis.com/css2?family=The+Nautigal:wght@400;700&display=swap');
+		@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&family=Raleway:wght@100;200&family=Roboto:ital,wght@0,100;0,300;0,400;1,100;1,300;1,400&display=swap');
+	</style>
+	<title>Home | RL</title>
+	<link rel="stylesheet" href="style_home.css" />
+	<script src="main.js"></script>
+	<script type="module" src="script_lgout.js"></script>
+</head>
+
+<body>
+	<nav class="navbar">
+		<a id="focal_head" href="#focal">Remote Labs</a>
+
+		<button id="exit"  onclick="exit()" ><img src="logout.png" type=".png"></img>Exit</button>
+		
+	</nav>
+	<div id="welcome">Welcome</div>
+	</div>
+
+	<div class="boxes">
+		<nav class="exp_head">Experiment</nav>
+	
+
+	<!-- Experiment Card -->
+		<div class="card" id="loadtest">
+			<div class="card__inner" id="loadtest_in">
+				<div class="card__face card__face--back">
+					<div class="card__content">
+						<div class="card__header">
+							<img src="loadtest.jpg" alt="" class="pp" />
+							<h2>LOAD TEST ON SINGLE PHASE TRANSFORMER</h2>
+						</div>
+						<div class="card__body">
+							<h3>Overview</h3>
+							<p>To conduct the load test on the given single phase transformer for finding the
+								efficiency and its regulation.</p>
+							<div class="targets">
+								<button id="theory" onclick="loadtest_theory()">Theory</button>
+								<button id="experiment" onclick="loadtest_exp()">Dashboard</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	
+		
+		</div>
+		<script>
+			function exit() {
+				location.href = "thank.html";
+			}
+		   
+		</script>
+		<div class="note"><strong> Made by HITAM, Copyright © IIIT Hyderabad </strong></div>
+</body>
+
+</html>

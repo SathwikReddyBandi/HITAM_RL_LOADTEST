@@ -1,0 +1,129 @@
+:root{
+    --gradient: linear-gradient(
+        337deg,
+        #055a72,
+      #75dee6,
+      #dac8ee
+    )
+}
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    align-items: center;
+    background: linear-gradient(324deg, #055a72,#75dee6);
+}
+
+.navbar{
+    overflow: hidden;
+    background: linear-gradient(324deg, );
+    background-size: 200%;
+    background-position: right;
+    transition: background-position 1s;
+    cursor: pointer;
+
+    position: fixed;
+    display: block;
+    top: 0px;
+    right: 0px;
+    width: 100%;
+    height: 70px;
+    z-index: 3;
+  }
+  .navbar:hover{
+    background-size: 100%;
+    background-position: left;
+  }
+  
+  .navbar a{
+    display: block;
+    position: relative;
+    color: #fff;
+    font-size: 320%;
+    padding: 5px 16px;
+    text-decoration: none;
+  }
+  #focal_head{
+    line-height: 1.3;
+    font-family: "Bebas Neue",cursive;
+    font-weight: 600;
+    letter-spacing: 1px;
+    float: left;
+  }
+
+  .navbar button{
+    font-family: "Poppins",sans-serif;
+    background-image: var(--gradient);
+    border: 1px solid rgb(255, 255, 255);
+    border-radius: 10px;
+    color: #fff;
+    font-size: 120%;
+    line-height: 2;
+    padding: 0px 10px 0 10px;
+    position: relative;
+    top: 15px;
+    right: 10px;
+    float: right;
+    background-size: 200%;
+    background-position: right;
+    transition: background-position 1s;
+    cursor: pointer;
+}
+
+.navbar button:hover{
+    background-size: 300%;
+    background-position: left;
+}
+#home{
+    right: 20px;
+}
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+  }
+  
+  .line {
+      position: relative;
+      top: 60px;
+    width: 100vw;
+  }
+  .left, .right {
+    width: 50vw;
+    overflow: hidden;
+    display: inline-block;
+  }
+  .left {
+    color:rgb(247, 247, 248);
+    transform: skew(0deg, -15deg);
+  }
+  .right {
+    color: black;
+    transform: skew(0deg, 15deg);
+  }
+  .left .content {
+    width: 100vw;
+    text-align: center;
+  }
+  .right .content {
+    width: 100vw;
+    text-align: center;
+    transform: translate(-50vw);
+  }
+  span {
+    display: inline-block;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 8vw;
+    text-transform: uppercase;
+    line-height: .8;
+    transition: ease-out .6s;
+  }

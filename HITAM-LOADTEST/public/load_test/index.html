@@ -1,0 +1,238 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | LOAD TEST ON SINGLE PHASE TRANSFORMER</title> 
+    <!-- graph plotly -->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script> -->
+    
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="script.js"></script>
+    <script src="timer.js"></script>
+ 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script> -->
+    <style>
+		/* @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@200&display=swap'); */
+        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@800;900&family=Poppins:wght@200&display=swap');
+		@import url('https://fonts.googleapis.com/css2?family=The+Nautigal:wght@400;700&display=swap');
+		@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&family=Raleway:wght@100;200&family=Roboto:ital,wght@0,100;0,300;0,400;1,100;1,300;1,400&display=swap');
+	</style>
+    <script>
+        jQuery(document).ready(function ($) {
+    
+            if (window.history && window.history.pushState) {
+    
+                window.history.pushState('forward', null, './#forward');
+    
+                $(window).on('popstate', function () {
+                    sessionStorage.removeItem("saved_countdown");
+                    location.href = '../home_page/home.html'
+                    fetch("https://blynk.cloud/external/api/update?token=ilEv4NM3BlZSMolddR7EsuurFMx6DR5a&v4="+ v)   
+    
+                });
+            }
+        });
+    </script>
+    
+</head>
+
+<body>
+    <nav role="navigation">
+        <div id="menuToggle">
+
+            <input type="checkbox" />
+
+            <span></span>
+            <span></span>
+            <span></span>
+
+            <ul id="menu">
+                <div class="up_half"><h2>How to use this dashboard</h2></div>
+                <li><strong>Overview</strong></li>
+                <li>Turn on the power supply and load buttons.</li>
+                <li> Take down the No-load readings and make a note of No-load voltage</li>
+                <li>Turn on the load switch.</li>
+               <li>Take down the V, I & W of primary and secondary sides.</li>
+                <li>Increase the load in steps using the increment button present in the dashboard.</li>
+                <li><strong><strong>Note: The load can be increased only when the previous load values are printed in table.</strong></strong></li>
+                <li>Take down the eventual readings.</li>
+                <li>Plot the curves for %η Vs load power and %Vreg Vs load power.</li>
+                <li>To restart the experiment use reset key and can start the experiment from the beginning.</li>
+                <li><strong><strong>Note: There's a latency of about 5-10 seconds in video feed.</strong></strong></li>
+            </ul>
+        </div>
+        </div>
+        <label id="inst">Instructions</label>
+        <link rel="stylesheet" href="style.css">
+
+    </nav>
+
+    <div class="stream">
+        <label id="pc1">Load Test</label>
+
+<!-- YouTube -->
+<iframe width="450" height="220" id="live" src="https://www.youtube.com/embed/4142NuvwH08?&autoplay=1" class="live" title="YouTube video player" frameborder="0" 
+allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; 
+picture-in-picture" allowfullscreen></iframe>      
+</div>
+<!-- https://studio.youtube.com/video/yqF6cBRBSbU/livestreaming -->
+    <div class="range1">
+        <nav class="navbar">
+            <a id="focal_head" href="#focal">LOAD TEST ON SINGLE PHASE TRANSFORMER</a>
+            <a id="session" type="button" onclick='leave()'>Leave Session</a>
+            <a id="demo"></a>
+        </nav>
+
+        <div class="slidervalue1">
+            <div id="us"></div>
+        </div>
+
+    <!-- Load slider -->
+        <div class="field1">
+            <div class="decrease">Decrease</div>
+            <input type="button" min="0" max="5" value="0.0" style="width: 160px;" step="1" id="u">
+            <div class="increase">Increase</div>
+            <label>Load</label>
+        </div>
+        <button type="button" onclick='increment("u")' class="btn_plus" id="btn_plus1">▶</button>
+        <button type="button" onclick='decrement("u")' class="btn_minus" id="btn_minus1">◀</button>
+      
+       
+    <!-- supply button -->
+        <div class="range2">
+            <div class="field2">
+            <label>Turn ON supply</label>
+            </div>
+            <button type="button" onclick='Power("btn_power")' class="btn_power" id="btn_power">🗲</button>
+        </div> 
+       
+    <!-- Reset button -->
+        <div class="range3">
+        <div class="field3"> 
+            <label>Reset</label>
+            </div>
+            <button type="button" onclick='reset("btn_reset")' class="btn_reset" id="btn_reset">⟳</button>
+        </div> 
+       
+    <!-- Load button -->
+        <div class="range4">
+        <div class="field4"> 
+            <label>Turn ON Load</label>
+            </div>
+            <button type="button" onclick='Load("btn_load")' class="btn_load" id="btn_load">&#x23FB;</button>
+        </div> 
+      
+    <!-- Resistance -->
+       <div class="Resistance">
+        <span id="resistance">Supply<br>Off</span>
+        <label id="ohm">Ω</label>
+    </div>
+
+       <!-- info -->
+       <div class="info">
+        Increase the load in steps
+    </div>
+   
+    <!-- Graph -->
+    
+    <div class="gp">
+    <div id="graph"></div>
+</div>
+
+    <!-- Table -->
+            <div class="contents">
+               
+            <table id="myTable">
+                <tr>
+                    
+                    <th>Load</th>
+                    <th>V<sub>p</sub><br> (Volt)</th>
+                    <th>I<sub>p</sub> <br> (mA)</th>
+                    <th>W<sub>p</sub><br> (watt)</th>
+                    <th>V<sub>s</sub> <br>(Volt)</th>
+                    <th>W<sub>s</sub> <br>(watt)</th>
+                    <th>Efficiency <br>(η)</th>
+                    <th>Voltage Regulation <br> (%)</th>
+                </tr>
+                <tr>               
+                    <td><button type="button"  class="btnnl" id="btnnl">⦿</button>NL</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>                   
+                    <td><button type="button"  class="btn0" id="btn0">⦿</button>L1</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+            </tr>
+                <tr>                  
+                    <td><button type="button"  class="btn1" id="btn1">⦿</button>L2</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>                   
+                    <td><button type="button"  class="btn2" id="btn2">⦿</button>L3</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><button type="button"  class="btn3" id="btn3">⦿</button>L4</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    
+                    <td><button type="button"  class="btn4" id="btn4">⦿</button>L5</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                </table>
+        </div>
+    
+    </div>
+
+
+        <!-- <canvas id="myChart"></canvas> -->
+
+    <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
+       
+<script type="module" src="video.js"></script>
+</body>
+
+</html>

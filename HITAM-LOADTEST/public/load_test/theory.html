@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Load Test on Single Phase Transformer | Theory </title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@200&display=swap');
+    </style>
+  
+    <link rel="stylesheet" href="theory.css">
+    <script>
+        function return_home() {
+            location.href = '../home_page/home.html'
+        }
+    </script>
+</head>
+
+<body>
+    <nav class="navbar">
+        <a id="focal_head" href="#focal">Remote Labs</a>
+        <button id="Leave_Queue" onclick="return_home()">Back to Home</button>
+    </nav>
+
+    <div class="card" id="fl">
+        <div class="card__inner" id="fl_in">
+            <div class="card__face card__face--back">
+                <div class="card__content">
+                    <div class="card__header">
+                        <h2>Load Test on Single Phase Transformer</h2>
+                    </div>
+                    <div class="card__body">
+                        <h3>Aim</h3>
+                        <p>The aim of this experiment is to conduct the load test on the given single phase transformer for finding the
+                            efficiency and its regulation.</p><br />
+                        <h3>Apparatus</h3>
+                        <!-- <p>
+                            <li>Voltmeter</li>
+                            <li>Ammeter</li>
+                            <li>Wattmeter</li>
+                            <li>Resistive Load</li>
+                            <li>Sinlge Phase Transformer</li>
+                        </p><br /> -->
+                        
+                            <div class="contents1">
+                                <table id="myTable">
+                        
+                            <tr>
+                                <th>S.No.</th>
+                                <th>Apparatus</th>
+                                <th>Range</th>
+                                <th>Type</th>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td rowspan="2">Voltmeter</td>
+                                <td>0-250V </td>
+                                <td>AC</td>
+                            </tr>
+                            <tr>
+                               
+                                <td></td>                           
+                                <td>0-20V </td>
+                                <td>AC</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>Ammeter</td>
+                                <td>0 – 5amps </td>
+                                <td>AC</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>Wattmeter</td>
+                                <td>300V/5amps</td>
+                                <td>AC</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>Single Phase Transformer</td>
+                                <td>230/15V </td>
+                                <td>AC</td>
+                            </tr>
+                        </table>
+                            </div>&nbsp;
+                   
+                    
+                        <h3>Theory</h3>
+                        <p>The main theory behind the experiment can be summarized as:</p>
+                        <p>
+                            <li>The transformer is a device which transfers energy from one electrical circuit to another electrical circuit
+                                through magnetic field as coupling medium. </li>
+                            <li>It works on the basic principle of electromagnetic induction and has a very high efficiency.</li>
+                            <li>When primary winding of transformer is energized with source of voltage
+                                V1 an e.m.f. E2 is induced across the seccondary winding and it is also equal
+                                to secondary winding and it is also equal to secondary terminal voltage V2 till there
+                                is no load across secondary winding.
+                            </li>
+                            <li> As soon as load is applied across the secondary winding the
+                                terminal voltage is decreased from E2 and V2 this phemonenon of 
+                                changing the voltage is called "voltage regulation". 
+                                 </li>
+                        </p>
+                           <p> The formulas used are:</p>
+                         <p>  $$ Percentage Regulation =  \frac{Vo2-V2}{Vo2}*100$$</p>
+                                            <ul><li>Where V<sub>02</sub> = Secondary voltage on no load </li>
+                                            <li>V<sub>0</sub> = Secondary voltage at a particular load</li>
+                                    $$ Efficiency = \frac{P2}{P1}*100$$</p>
+                                   
+                                          <li> Where P2= Output Power</li>
+                                          <li> P1= Input Power</li>    
+                        </p>
+                        <p>
+                            $${P2}={P1}-{PL}$$
+                        </p>
+                        <li>Where PL= Losses</li></ul>
+                        <br>
+                        <h3>Circuit Diagram</h3>
+                        <img src="Circuit.jpeg" class="align" width="850px", height="300px">
+                      <br>
+                      <br>
+                      <h3>Model Graph</h3>
+
+                      <img src="char.jpg" class="center" >
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
